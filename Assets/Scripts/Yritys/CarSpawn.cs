@@ -8,7 +8,7 @@ public class CarSpawn : MonoBehaviour
     private CarMovement prefab;
     // ObjectPooler objectPooler;
     private Pool pool;
-
+    public bool invoke = true;
     /* public Transform[] spawnLocations;
      public GameObject[] whatToSpawnPrefab;
      public GameObject[] whatToSpawnClone;
@@ -16,14 +16,22 @@ public class CarSpawn : MonoBehaviour
 
     private void Start()
     {
+       
         pool = Pool.GetPool(prefab);
         // objectPooler = ObjectPooler.Instance;
         SpawnCar();
 
-            InvokeRepeating("SpawnCar", 5f, 5f);
+            InvokeRepeating("SpawnCar", 2.2f, 2.2f);
 
-        } 
-       private void SpawnCar()
+        }
+    private void Update()
+    {
+        if (invoke == false)
+        {
+            CancelInvoke("SpawnCar");
+        }
+    }
+    private void SpawnCar()
         {
         
         var car = pool.Get(transform.position, Quaternion.identity) as CarMovement;

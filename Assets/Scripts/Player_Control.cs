@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Control : MonoBehaviour {
+public class Player_Control : MonoBehaviour
+{
     public bool isGrounded;
     public bool isCrouching;
 
@@ -11,23 +12,27 @@ public class Player_Control : MonoBehaviour {
     private float wb_speed = 0.015f;
     private float r_speed = 0.1f;
     private float c_speed = 0.015f;
+
     public float rotSpeed;
     public float jumpHeight;
+
     Rigidbody rb;
     Animator anim;
     CapsuleCollider col_size;
 
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        col_size = GetComponent <CapsuleCollider>();
+        col_size = GetComponent<CapsuleCollider>();
         isGrounded = true;
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         //Toggle Crouch
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -54,14 +59,14 @@ public class Player_Control : MonoBehaviour {
         transform.Translate(0, 0, z);
         transform.Rotate(0, y, 0);
 
-       /* if (Input.GetKey(KeyCode.Space) && isGrounded == true)
-        {
-            rb.AddForce(0, jumpHeight, 0);
-            anim.SetTrigger("isJumping");
-            isCrouching = false;
-            isGrounded = false;
+        /* if (Input.GetKey(KeyCode.Space) && isGrounded == true)
+         {
+             rb.AddForce(0, jumpHeight, 0);
+             anim.SetTrigger("isJumping");
+             isCrouching = false;
+             isGrounded = false;
 
-        }*/
+         }*/
         if (isCrouching)
         {
             //Crouch controls
@@ -87,7 +92,7 @@ public class Player_Control : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            
+
             //Running controls
             if (Input.GetKey(KeyCode.W))
             {
@@ -113,7 +118,7 @@ public class Player_Control : MonoBehaviour {
         }
         else if (!isCrouching)
         {
-            
+
             //Standing controls
             if (Input.GetKey(KeyCode.W))
             {
@@ -137,10 +142,13 @@ public class Player_Control : MonoBehaviour {
                 anim.SetBool("isRunning", false);
                 anim.SetBool("isIdle", true);
             }
+
         }
     }
-    void OnCollisionEnter()
-    {
-        isGrounded = true;
+        void OnCollisionEnter()
+        {
+            isGrounded = true;
+        }
     }
-}
+
+
