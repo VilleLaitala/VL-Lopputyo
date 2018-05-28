@@ -88,7 +88,7 @@ public class Pool : MonoBehaviour
         var pooledObject = Get();
 
         (pooledObject as Component).transform.position = position;
-        (pooledObject as Component).transform.rotation = Quaternion.Euler(0, 90, 0);
+        (pooledObject as Component).transform.rotation = rotation;
         (pooledObject as Component).gameObject.SetActive(true);
 
         return pooledObject;

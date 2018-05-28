@@ -6,12 +6,13 @@ using UnityEngine;
 public class CarMovement : MonoBehaviour, IPoolable
 {
 
-    // public bool isMoving;
-    // public bool isGrounded;
-    [SerializeField]
+    public AudioClip[] notMoving;
+    public AudioClip moving;
+    public AudioSource audioSource;
+
     public bool isMoving;
-    public float CarSpeed = 1.5f;
-    
+    public float CarSpeed;
+
     Rigidbody CarRb;
     Animator CarAnim;
     public event Action OnDestroyEvent = delegate { };
@@ -19,7 +20,7 @@ public class CarMovement : MonoBehaviour, IPoolable
     private void OnDisable() { OnDestroyEvent(); }
     public void Start()
     {
-        
+
         isMoving = true;
         CarRb = GetComponent<Rigidbody>();
         //CarAnim = GetComponent<Animator>();
@@ -27,27 +28,38 @@ public class CarMovement : MonoBehaviour, IPoolable
         // isGrounded = true;
 
     }
-    
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+    }
+
 
     // Update is called once per frame
 
-    private void FixedUpdate()
-   
+    private void Update()
+
+    {
+        if (isMoving == true) // If true, Car moves.
         {
-            if (isMoving == true)
-            {
-                transform.Translate(0f, 0f, 1.5f);
-                Debug.Log("Is moving");
+            transform.Translate(0f, 0f, CarSpeed);
+            //  Is moving
+            audioSource.clip = moving;
+            audioSource.loop = true;
+            audioSource.Play();
 
-            }
-            if (isMoving == false)
-            {
-
-                transform.Translate(0f, 0f, 0f);
-                Debug.Log("Is not moving");
-
-            }
         }
+        if (isMoving == false) // If false, Car doesn't moves.
+        {
+            transform.Translate(0f, 0f, 0f); //  Is not moving
+            audioSource.clip = moving;
+
+            audioSource.Stop();
+            Invoke("RandomNotMovingSound", 5);
+
+
+        }
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -55,27 +67,40 @@ public class CarMovement : MonoBehaviour, IPoolable
         if (other.gameObject.tag == "Stop")
         {
 
-            Debug.Log("Collided with Stop");
+            //Collided with Stop set isMoving false
             isMoving = false;
         }
         else
         {
             if (other.gameObject.tag == "Go")
             {
-                Debug.Log("Collided with Go");
+                //Collided with Go set isMoving true
                 isMoving = true;
             }
         }
-
     }
+    void RandomNotMovingSound()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+
+            audioSource.clip = notMoving[UnityEngine.Random.Range(0, notMoving.Length)];
+            audioSource.Play();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall") // if Collides with wall set the gameObject active false.
         {
+            
+
+            
             gameObject.SetActive(false);
-            Debug.Log("Collided");
+
 
         }
-       
-        }
     }
+
+
+}

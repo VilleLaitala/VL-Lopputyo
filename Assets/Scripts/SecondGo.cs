@@ -21,7 +21,7 @@ public class SecondGo : MonoBehaviour
         if (other.gameObject.tag == "Car")
         {
 
-            Debug.Log("Car on Go");
+            //Debug.Log("Car on Go");
             
             go2.SetActive(true);
             stop2.SetActive(false);

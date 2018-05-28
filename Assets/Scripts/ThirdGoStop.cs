@@ -20,7 +20,7 @@ public class ThirdGoStop : MonoBehaviour
         if (other.gameObject.tag == "Car")
         {
 
-            Debug.Log("Car on Stop 2");
+            //Debug.Log("Car on Stop 2");
 
             stop3.SetActive(true);
 

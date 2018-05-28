@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 65405747695698482}
   - component: {fileID: 54534519371076932}
   - component: {fileID: 114802331261641482}
+  - component: {fileID: 82815593254761548}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -1566,6 +1567,87 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.60636324, y: 0.5554078, z: 1.9807965}
   m_Center: {x: -0.0025620938, y: 0.17640053, z: 0.0044073104}
+--- !u!82 &82815593254761548
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531777363096448}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 248799cb4acba48f7b3ee842a80f788c,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 1
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95033432558365816
 Animator:
   serializedVersion: 3
@@ -1662,5 +1744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5232ca696538f844878c7df29899ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notMoving:
+  - {fileID: 8300000, guid: c1ab87e79c4598d439467baae1b1d6bc, type: 3}
+  - {fileID: 8300000, guid: b49c5659c9c31a746aa8ce23b1e9419c, type: 3}
+  - {fileID: 8300000, guid: 8e6f46b2c2ee0114686370e5b636e871, type: 3}
+  moving: {fileID: 8300000, guid: bbffa4fef2d1d06428edb0d5c0cabdfd, type: 3}
+  audioSource: {fileID: 82815593254761548}
   isMoving: 0
-  CarSpeed: 1.5
+  CarSpeed: 0.5

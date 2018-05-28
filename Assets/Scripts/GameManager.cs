@@ -2,23 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+[RequireComponent(typeof(AudioSource))]
+public class GameManager : MonoBehaviour {
 
-public class GameManager : MonoBehaviour
+    public GameObject startGameText;
+    public AudioClip startSound;
 
-{
+    public AudioSource audioSource;
 
-    public GameObject text;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+    }
+
+    IEnumerator Start()
+    {
+        startGameText.SetActive(true);
+        yield return new WaitForSecondsRealtime(1);
+        audioSource.PlayOneShot(startSound);
+        yield return new WaitForSecondsRealtime(2);
+        startGameText.SetActive(false);
+        
+    }
+   
     bool gameHasEnded = false;
-   // public float restartDelay = 3;
+   
     public void EndGame()
 
     {
         if (gameHasEnded == false)
 
         {
-            text.SetActive(true);
             gameHasEnded = true;
-            Debug.Log("Hit by Car");
+            
             Time.timeScale = .001f;
             StartCoroutine(Restart());
         }
@@ -32,11 +49,3 @@ public class GameManager : MonoBehaviour
 
     }
     }
-           // Invoke("Restart", restartDelay / Time.timeScale);
-
-   /* void Restart()
-    {
-
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }*/
