@@ -8,9 +8,9 @@ public class Player_Control : MonoBehaviour
     public bool isCrouching;
 
     private float speed;
-    private float w_speed = 0.07f;
+    private float w_speed = 0.05f;
     private float wb_speed = 0.015f;
-    private float r_speed = 0.2f;
+    private float r_speed = 0.1f;
     private float c_speed = 0.015f;
 
     public float rotSpeed;

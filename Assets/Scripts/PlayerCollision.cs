@@ -63,7 +63,7 @@ public class PlayerCollision : MonoBehaviour
 
             trigger.SetActive(false);
             Debug.Log("Trigger 0");
-            target.transform.position = new Vector3(89f, 0.041f, 175.68f);
+            target.transform.position = new Vector3(89f, 1f, 175.68f);
 
         }
         if (other.gameObject.tag == "Trigger1")
@@ -71,48 +71,48 @@ public class PlayerCollision : MonoBehaviour
 
             trigger1.SetActive(false);
             Debug.Log("Trigger 1");
-            target.transform.position = new Vector3(90.2f, 0.041f, 223.8f);
+            target.transform.position = new Vector3(90.2f, 1f, 223.8f);
         }
         if (other.gameObject.tag == "Trigger2")
         {
 
             trigger2.SetActive(false);
             Debug.Log("Trigger 2");
-            target.transform.position = new Vector3(128.7f, 0.041f, 223.8f);
+            target.transform.position = new Vector3(128.7f, 1f, 223.8f);
         }
         if (other.gameObject.tag == "Trigger3")
         {
 
             trigger3.SetActive(false);
             Debug.Log("Trigger 3");
-            target.transform.position = new Vector3(110.2f, 0.041f, 155.7f);
+            target.transform.position = new Vector3(110.2f, 1f, 155.7f);
         }
         if (other.gameObject.tag == "Trigger4")
         {
 
             trigger4.SetActive(false);
             Debug.Log("Trigger 4");
-            target.transform.position = new Vector3(106f, 0.041f, 119.1f);
+            target.transform.position = new Vector3(106f, 1f, 119.1f);
         }
         if (other.gameObject.tag == "Trigger5")
         {
 
             trigger5.SetActive(false);
             Debug.Log("Trigger 5");
-            target.transform.position = new Vector3(61.1f, 0.041f, 119.1f);
+            target.transform.position = new Vector3(61.1f, 1f, 119.1f);
         }
         if (other.gameObject.tag == "Trigger6")
         {
 
             trigger6.SetActive(false);
             Debug.Log("Trigger 6");
-            target.transform.position = new Vector3(64.2f, 0.041f, 151.2f);
+            target.transform.position = new Vector3(64.2f, 1f, 151.2f);
         }
         if (other.gameObject.tag == "Trigger7")
         {
             trigger7.SetActive(false);
             Debug.Log("Trigger 7");
-            target.transform.position = new Vector3(87.6f, 0.041f, 152.2f);
+            target.transform.position = new Vector3(87.6f, 1f, 152.2f);
         }
     
     }
