@@ -29,7 +29,7 @@ public class Cat : MonoBehaviour {
             Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.fixedDeltaTime);
             GetComponent<Rigidbody>().MovePosition(pos);
         }
-        else current = (current + 2) % target.Length;
+        else current = (current + 1) % target.Length;
 	}
     void CallAudio()
     {

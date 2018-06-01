@@ -9,7 +9,7 @@ public class DestroyOnCollision : MonoBehaviour {
         if (collision.gameObject.tag == "Wall")
         {
             gameObject.SetActive(false);
-            Debug.Log("Collided");
+           // Debug.Log("Collided");
 
         }
     }
